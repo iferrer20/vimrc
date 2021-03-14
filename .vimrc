@@ -16,20 +16,24 @@ let g:ycm_extra_conf_vim_data = [
 
 let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
 
-
 " VUNDLE
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
+"Plugin 'itchyny/lightline.vim'
 Plugin 'preservim/nerdcommenter'
 Plugin 'mileszs/ack.vim' 
 Plugin 'valloric/youcompleteme'
 Plugin 'ClosePairs'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sainnhe/sonokai'
 call vundle#end()
+
 
 filetype plugin indent on
 let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
@@ -53,6 +57,7 @@ Plug 'ericbn/vim-relativize'
 Plug 'preservim/NERDTree'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pechorin/any-jump.vim'
 call plug#end()
 
 syntax on
@@ -70,28 +75,38 @@ filetype plugin on
 let mapleader = "<"
 
 " THEME
-colo molokai
-let g:lightline = {
-\ 'colorscheme': 'molokai',
-\ 'subseparator': { 'right': '' },
-\ }
-if !has('gui_running')
-  set t_Co=256
+"
+if has('termguicolors')
+    set termguicolors
 endif
-set noshowmode
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+colo sonokai
+"let g:lightline = {
+"\ 'colorscheme': 'molokai',
+"\ 'subseparator': { 'right': '' },
+"\ }
 " THEME rela numbers
 
 
 "hi SignColumn guibg=NONE guifg=NONE
-hi Normal ctermbg=NONE
-hi LineNr term=bold cterm=NONE ctermfg=DarkGray ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+
+"TRANSPARENT BACKGROUND
+"hi Normal ctermbg=NONE
+
+"hi Normal ctermbg=232
+"hi LineNr ctermfg=DarkGray ctermbg=234
+"hi LineNr term=bold cterm=NONE ctermfg=DarkGray ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 
 
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-let s:palette.inactive.middle = s:palette.normal.middle
-let s:palette.tabline.middle = s:palette.normal.middle
+"let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+"let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+"let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+"let s:palette.inactive.middle = s:palette.normal.middle
+"let s:palette.tabline.middle = s:palette.normal.middle
+
+let mapleader=","
 
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
@@ -108,27 +123,37 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-nmap <C-b> :NERDTreeTabsToggle<CR>
-imap <C-b> <Esc><Right>:NERDTreeTabsToggle<CR>i
-vmap <C-b> <Esc>:NERDTreeTabsToggle<CR>v
+nmap <leader>b :NERDTreeTabsToggle<CR>
+"imap <leader>b <Esc><Right>:NERDTreeTabsToggle<CR>i
+"vmap <leader>b <Esc>:NERDTreeTabsToggle<CR>v
 
-nmap <C-t> :tabnew<CR>
-imap <C-t> <Esc><Right>:tabnew<CR>
-vmap <C-t> <Esc>:tabnew<CR>
+nmap <leader>t :tabnew<CR>
+"imap <leader>t <Esc><Right>:tabnew<CR>
+"vmap <leader>t <Esc>:tabnew<CR>
 
 
-nmap <C-u> :tabn<CR>
-imap <C-u> <Esc><Right>:tabn<CR>i
-vmap <C-u> <Esc>:tabn<CR>
+nmap <leader>u :tabn<CR>
+"imap <leader>u <Esc><Right>:tabn<CR>i
+"vmap <leader>u <Esc>:tabn<CR>
 
-nmap <C-s> :w<CR>
-imap <C-s> <Esc><Right>:w<CR>i
-vmap <C-s> :w<CR>
+nmap <leader>w :w<CR>
+"imap <leader>s <Esc><Right>:w<CR>i
+"vmap <leader>s :w<CR>
 
-nmap <C-a> ggVG<CR>
-imap <C-a> <Esc>ggVG<CR>
-vmap <C-a> <Esc>ggVG<CR>
+nmap <leader>a ggVG<CR>
+"imap <leader>a <Esc>ggVG<CR>
+"vmap <leader>a <Esc>ggVG<CR>
 
-nmap <C-x> :q!<CR>
-imap <C-x> <Esc>:q!<CR>
-vmap <C-x> <Esc>:q!<CR>
+nmap <leader>x :q!<CR>
+"imap <leader>x <Esc>:q!<CR>
+"vmap <leader>x <Esc>:q!<CR>
+
+let g:AutoPairsMapCh = 0
+
+"AIRLINE
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'tomorrow'
+
+let g:onedark_hide_endofbuffer = 1
+let g:onedark_terminal_italics = 1
