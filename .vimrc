@@ -19,6 +19,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 let mapleader = ","
@@ -28,6 +29,9 @@ nmap <leader>w :w!<CR>
 nmap <leader>x :x!<CR>
 nmap <leader>t :tabnext<CR>
 nmap <leader>h :set number!<CR>
+
+imap <C-j> <Down>
+imap <C-k> <Up>
 
 imap <C-c> <C-o>:stopinsert<CR>
 set ve+=onemore
