@@ -35,7 +35,7 @@ hi Normal guifg=#ffffff guibg=#000000 guisp=#001b33 gui=bold ctermfg=15 ctermbg=
 "hi clear -- no settings --
 hi IncSearch guifg=#ffffff guibg=#0088ff guisp=#0088ff gui=NONE ctermfg=15 ctermbg=33 cterm=NONE
 hi WildMenu guifg=NONE guibg=#909da8 guisp=#909da8 gui=NONE ctermfg=NONE ctermbg=109 cterm=NONE
-hi SignColumn guifg=#1a1a1a guibg=#445291 guisp=#445291 gui=NONE ctermfg=234 ctermbg=60 cterm=NONE
+hi SignColumn guifg=#1a1a1a guibg=#000000 guisp=#000000 gui=NONE ctermfg=234 ctermbg=60 cterm=NONE
 hi SpecialComment guifg=#0088ff guibg=NONE guisp=NONE gui=bold,italic ctermfg=33 ctermbg=NONE cterm=bold
 hi Typedef guifg=#40e0d0 guibg=NONE guisp=NONE gui=bold ctermfg=80 ctermbg=NONE cterm=bold
 hi Title guifg=#ffffff guibg=NONE guisp=NONE gui=NONE ctermfg=15 ctermbg=NONE cterm=NONE

@@ -14,21 +14,23 @@ endif
 
 let colors_name = "idle"
 
+hi SignColumn guibg=#111111 
+
 " Vim >= 7.0 specific colors
 " These settings are unchanged from Demotte's beekai.
 if version >= 700
-  hi CursorLine    guibg=#111111 ctermbg=234
-  hi CursorColumn  guibg=#111111 ctermbg=234
-  hi MatchParen    guifg=#d0ffc0 guibg=#111111 gui=bold ctermfg=157 ctermbg=237 cterm=bold
-  hi Pmenu         guifg=#ffffff guibg=#111111 ctermfg=255 ctermbg=238
-  hi PmenuSel      guifg=#000000 guibg=#d3ff3b ctermfg=0 ctermbg=148
+    hi CursorLine    guibg=#111111 ctermbg=234 cterm=NONE
+    hi CursorColumn  guibg=#111111 ctermbg=234
+    hi MatchParen    guifg=#d0ffc0 guibg=#111111 gui=bold ctermfg=157 ctermbg=237 cterm=bold
+    hi Pmenu         guifg=#ffffff guibg=#111111 ctermfg=255 ctermbg=238
+    hi PmenuSel      guifg=#000000 guibg=#d3ff3b ctermfg=0 ctermbg=148
 endif
 
 " General colors
 hi Cursor          guifg=NONE    guibg=#626262 gui=none ctermbg=241
-hi Normal          guifg=#ffffff guibg=#111111 gui=none ctermfg=015 ctermbg=black
-hi NonText         guifg=#808080 guibg=#111111 gui=none ctermfg=244 ctermbg=235
-hi LineNr          guifg=#ffffff gui=bold guibg=#5fafff gui=none ctermfg=075 ctermbg=black cterm=bold
+hi Normal          guifg=#ffffff guibg=#000000 gui=none ctermfg=015 ctermbg=black
+hi NonText         guifg=#808080 guibg=#000000 gui=none ctermfg=244 ctermbg=235
+hi LineNr          guifg=#ffffff gui=bold guibg=#111111 gui=none ctermfg=075 ctermbg=black cterm=bold
 hi StatusLine      guifg=#dadada guibg=#444444 gui=none ctermfg=253 ctermbg=238
 hi StatusLineNC    guifg=#949494 guibg=#444444 gui=none ctermfg=246 ctermbg=238
 hi VertSplit       guifg=#444444 guibg=#303030 gui=none ctermfg=238 ctermbg=238
